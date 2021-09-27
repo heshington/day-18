@@ -1,8 +1,8 @@
 from turtle import Turtle, Screen
-
+import random
 tim = Turtle()
 tim.shape("turtle")
-tim.color("blueviolet")
+
 
 shapes = {
     "triangle": [120, 3],
@@ -15,20 +15,25 @@ shapes = {
     "decagon": [36, 10]
 }
 
+def change_color():
+    R = random.random()
+    B = random.random()
+    G = random.random()
+
+    tim.color(R, G, B)
+
 def draw_shape():
     for shape in shapes:
         for _ in range(shapes[shape][1]):
             tim.forward(100)
             tim.rt(shapes[shape][0])
+        change_color()
+
+
 draw_shape()
 
 
 # Main Section
-
-
-
-
-
 
 screen = Screen()
 screen.exitonclick()
